@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Award, Building2, TrendingUp } from "lucide-react";
+import Link from "next/link";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -107,21 +108,65 @@ export default function HomePage() {
             </span>
           </motion.p>
 
-          <motion.div
-            variants={fadeIn}
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center"
-          >
-            <button className="group px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-base sm:text-lg font-semibold rounded-full hover:from-amber-600 hover:to-amber-700 transition-all duration-300 shadow-2xl hover:shadow-amber-500/50 hover:scale-105 w-full sm:w-auto">
-              Explore Projects
-              <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-            </button>
-            <button className="px-8 sm:px-10 py-4 sm:py-5 bg-white/10 backdrop-blur-md text-white text-base sm:text-lg font-semibold rounded-full border-2 border-white/30 hover:bg-white/20 transition-all duration-300 w-full sm:w-auto">
-              Contact Us
-            </button>
-          </motion.div>
+
+<motion.div
+  variants={fadeIn}
+  initial="hidden"
+  animate="visible"
+  transition={{ duration: 0.8, delay: 0.4 }}
+  className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center"
+>
+  {/* Explore Projects → /about */}
+  <Link href="/about" className="w-full sm:w-auto">
+    <button
+      className="
+        group
+        w-full sm:w-auto
+        px-8 sm:px-10
+        py-4 sm:py-5
+        bg-gradient-to-r from-amber-500 to-amber-600
+        text-white
+        text-base sm:text-lg
+        font-semibold
+        rounded-full
+        cursor-pointer
+        hover:from-amber-600 hover:to-amber-700
+        transition-all duration-300
+        shadow-2xl hover:shadow-amber-500/50
+        hover:scale-105
+      "
+    >
+      Explore Projects
+      <ArrowRight
+        className="inline-block ml-2 group-hover:translate-x-1 transition-transform"
+        size={20}
+      />
+    </button>
+  </Link>
+
+  {/* Contact Us → /contact */}
+  <Link href="/contact" className="w-full sm:w-auto">
+    <button
+      className="
+        w-full sm:w-auto
+        px-8 sm:px-10
+        py-4 sm:py-5
+        bg-white/10 backdrop-blur-md
+        text-white
+        text-base sm:text-lg
+        font-semibold
+        rounded-full
+        cursor-pointer
+        border-2 border-white/30
+        hover:bg-white/20
+        transition-all duration-300
+      "
+    >
+      Contact Us
+    </button>
+  </Link>
+</motion.div>
+
         </div>
 
         {/* Scroll Indicator */}

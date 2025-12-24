@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Building2, Award, Target, Users, TrendingUp, Globe, Shield, Zap } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -29,23 +31,25 @@ export default function AboutPage() {
   const expertiseCards = [
     {
       icon: Building2,
-      title: "Large-Scale Infrastructure Expertise",
-      desc: "We possess the specialized technical knowledge and rigorous project management systems required to execute large-scale, high-value infrastructure. This expertise in precision engineering, quality control, and adherence to tight deadlines is our guarantee that your residential or commercial asset will be delivered with unmatched durability and quality."
+      title: "Expertise in Large-Scale Infrastructure",
+      desc: "We possess the specialized technical knowledge and rigorous project management systems required to execute large-scale, high-value infrastructure. This expertise—in precision engineering, quality control, and adherence to tight deadlines—is our guarantee that your residential or commercial asset will be delivered with unmatched durability and quality.-	Visual Elements: Use high-quality, imposing photos of your completed industrial/infrastructure complexes (avoiding the word 'factory'), focusing on the scale, modern architecture, and technical complexity of the buildings. Include key metrics like `Total Square Footage Delivered` or `Average On-Time Delivery Rate.`"
     },
     {
       icon: Award,
-      title: "Integrated Development Excellence",
+      title: "Expanding into Integrated Development",
       desc: "The same engineering rigor and dedication to flawless execution are now applied to the Ariana portfolio. We seamlessly translate complex project mastery into sophisticated, efficient, and beautifully crafted premium residential and commercial spaces, setting a new bar for quality in the market."
     },
     {
       icon: Target,
-      title: "Premium Project Pipeline",
-      desc: "We are currently preparing to launch our inaugural portfolio of premium residential, commercial, and office developments in key growth corridors across Bangalore. Our current pipeline is focused on delivering integrated luxury residential communities and Grade-A office parks."
+      title: "Project Portfolio (Current & Future)",
+       subtitle:"The Future of Development: Our Pipeline",
+      desc: "We are currently preparing to launch our inaugural portfolio of premium residential, commercial, and office developments in key growth corridors across Bangalore. Our current pipeline is focused on delivering integrated luxury residential communities and Grade-A office parks.-	Visual Elements: Display conceptual 3D renderings or architectural drawings of the types of premium residential and commercial properties Ariana will build, emphasizing sophisticated design and scale."
     },
     {
       icon: Shield,
-      title: "Quality-First Approach",
-      desc: "Every project undergoes stringent quality checks at multiple stages. Our commitment to excellence means we never compromise on materials, craftsmanship, or timelines. This dedication has earned us the trust of global corporations and will define every Ariana development."
+      title: "Donayang India – Our Legacy (Group Introduction)",
+       subtitle:"A Foundation Built on Global Strength",
+      desc: "Ariana is backed by the financial strength, ethical governance, and global construction pedigree of our Korean parent group, Nature E&T. With a history spanning over 40 years, the Nature Group is synonymous with reliable, large-scale project delivery worldwide. This robust backing ensures complete financial stability and project continuity for every Ariana development in India.-	Visual Elements: Display the Nature Group Logo, key financial stability metrics (e.g., Year Established, Global Project Footprint Map), and a corporate photo of the Korean headquarters."
     }
   ];
 
@@ -178,7 +182,7 @@ export default function AboutPage() {
           </motion.div>
 
           {/* LEADERSHIP IMAGE PLACEHOLDER */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -196,7 +200,7 @@ export default function AboutPage() {
               </p>
               <p className="text-slate-400 text-xs sm:text-sm mt-3 sm:mt-4">[Upload Leadership Image Here]</p>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* ================= OUR TRACK RECORD ================= */}
           <motion.div
@@ -258,15 +262,53 @@ export default function AboutPage() {
                   transition={{ delay: index * 0.15 }}
                   className="group bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-2 border-slate-100 hover:border-amber-200 hover:shadow-2xl transition-all duration-300"
                 >
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
-                    <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                  </div>
-                  <h4 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-slate-900">
-                    {item.title}
-                  </h4>
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
+                  {/* Icon */}
+<div className="
+  w-12 h-12 sm:w-16 sm:h-16
+  bg-gradient-to-br from-amber-500 to-amber-600
+  rounded-xl sm:rounded-2xl
+  flex items-center justify-center
+  mb-4 sm:mb-5
+  shadow-lg
+  transition-transform duration-300
+  group-hover:scale-110 group-hover:rotate-3
+">
+  <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+</div>
+
+{/* Title */}
+<h4 className="
+  text-lg sm:text-xl md:text-2xl
+  font-semibold
+  text-slate-900
+  tracking-tight
+  mb-1 sm:mb-2
+">
+  {item.title}
+</h4>
+
+{/* Subtitle */}
+<h6 className="
+  text-sm sm:text-base
+  font-medium
+  text-amber-700
+  uppercase
+  tracking-wide
+  mb-3 sm:mb-4
+">
+  {item.subtitle}
+</h6>
+
+{/* Description */}
+<p className="
+  text-sm sm:text-base
+  text-slate-600
+  leading-relaxed
+  max-w-[42ch]
+">
+  {item.desc}
+</p>
+
                 </motion.div>
               );
             })}
@@ -303,8 +345,8 @@ export default function AboutPage() {
                 <p className="text-amber-200 text-center max-w-2xl text-base sm:text-lg px-4">
                   Premium Residential Communities & Grade-A Office Parks
                 </p>
-                <p className="text-slate-400 text-xs sm:text-sm mt-3 sm:mt-4">Coming Soon to Bangalore & Beyond</p>
-                <p className="text-slate-500 text-xs mt-2">[Upload Project Renderings Here]</p>
+                {/* <p className="text-slate-400 text-xs sm:text-sm mt-3 sm:mt-4">Coming Soon to Bangalore & Beyond</p>
+                <p className="text-slate-500 text-xs mt-2">[Upload Project Renderings Here]</p> */}
               </div>
             </div>
           </motion.div>
@@ -386,21 +428,58 @@ export default function AboutPage() {
               </motion.div>
             </div>
 
-            {/* NATURE E&T HEADQUARTERS PLACEHOLDER */}
-            <div className="relative h-64 sm:h-80 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl group">
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-700 via-slate-600 to-amber-800" />
-              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNkb3RzKSIvPjwvc3ZnPg==')] opacity-40" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6 sm:p-8">
-                <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-amber-500 to-amber-700 rounded-full flex items-center justify-center mb-4 sm:mb-6 shadow-2xl border-4 border-white/20 group-hover:scale-110 transition-transform duration-500">
-                  <Globe className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
-                </div>
-                <h4 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3">Nature E&T</h4>
-                <p className="text-slate-300 text-center max-w-2xl text-sm sm:text-base px-4">
-                  Headquarters: Seoul, South Korea | Global Footprint | 40+ Years of Excellence
-                </p>
-                <p className="text-slate-500 text-xs mt-3">[Upload Headquarters Image Here]</p>
-              </div>
-            </div>
+           {/* NATURE E&T HEADQUARTERS */}
+<div className="relative h-64 sm:h-80 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl group">
+
+  {/* Background Image */}
+  <Image
+    src="/arianaNatureENT.jpeg"
+    alt="Nature E&T Headquarters"
+    fill
+    priority
+    className="
+      object-cover
+      transition-transform duration-700 ease-out
+      group-hover:scale-110
+    "
+  />
+
+  {/* Luxury Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-slate-800/50 to-amber-900/60" />
+
+  {/* Content */}
+  <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6 sm:p-8 text-center">
+
+    {/* Icon */}
+    <div
+      className="
+        w-20 h-20 sm:w-28 sm:h-28
+        bg-gradient-to-br from-amber-500 to-amber-700
+        rounded-full
+        flex items-center justify-center
+        mb-4 sm:mb-5
+        shadow-2xl
+        border border-white/20
+        transition-transform duration-500
+        group-hover:scale-110
+      "
+    >
+      <Globe className="w-10 h-10 sm:w-14 sm:h-14 text-white" />
+    </div>
+
+    {/* Title */}
+    <h4 className="text-xl sm:text-3xl font-semibold tracking-tight mb-1 sm:mb-2">
+      Nature E&T
+    </h4>
+
+    {/* Subtitle */}
+    <p className="text-xs sm:text-sm md:text-base text-white/80 max-w-2xl leading-relaxed px-2">
+      Headquarters: Seoul, South Korea · Global Footprint · 40+ Years of Excellence
+    </p>
+
+  </div>
+</div>
+
           </motion.div>
         </div>
       </section>
@@ -420,13 +499,28 @@ export default function AboutPage() {
             <p className="text-lg sm:text-xl text-slate-600 mb-8 sm:mb-10 max-w-2xl mx-auto px-4">
               Discover how Ariana's commitment to quality and innovation can transform your vision into reality.
             </p>
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-amber-600 to-amber-700 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:shadow-2xl transition-all duration-300"
-            >
-              Explore Our Projects
-            </motion.button>
+
+<Link href="/brand">
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="
+      cursor-pointer
+      bg-gradient-to-r from-amber-600 to-amber-700
+      text-white
+      px-8 sm:px-10
+      py-3 sm:py-4
+      rounded-full
+      text-base sm:text-lg
+      font-semibold
+      hover:shadow-2xl
+      transition-all duration-300
+    "
+  >
+    Explore Our Projects
+  </motion.button>
+</Link>
+
           </motion.div>
         </div>
       </section>
