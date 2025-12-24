@@ -10,6 +10,10 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  // Pages that have hero / dark background
+  const heroRoutes = ["/", "/partnerships"];
+  const isHeroPage = heroRoutes.includes(pathname);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
@@ -27,56 +31,111 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled ? "bg-white shadow-md" : "bg-transparent"
+        scrolled
+          ? "bg-white/90 backdrop-blur-xl shadow-md border-b border-slate-200"
+          : "bg-transparent"
       }`}
     >
       <div className="mx-auto max-w-[2000px] px-6">
         <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="text-2xl font-serif tracking-wide text-amber-700"
-          >
-            ARIANA
+
+          {/* ================= LOGO ================= */}
+          <Link href="/" className="flex items-center">
+            <div
+              className={`flex items-center px-3 py-1 rounded-xl transition-all ${
+                scrolled
+                  ? "bg-white/80 border border-slate-200 shadow-sm"
+                  : "bg-white/20 backdrop-blur-md"
+              }`}
+            >
+              <img
+                src="/arianaWebLogo.jpeg"
+                alt="Ariana App Logo"
+                className="h-8 w-auto object-contain rounded-lg"
+              />
+            </div>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* ================= DESKTOP NAV ================= */}
           <nav className="hidden md:flex items-center gap-10">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm font-medium transition ${
-                  pathname === item.href
-                    ? "text-amber-700"
-                    : "text-zinc-700 hover:text-amber-700"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+
+              const baseColor = scrolled
+                ? "text-slate-800 hover:text-amber-700"
+                : isHeroPage
+                  ? "text-white hover:text-amber-200"
+                  : "text-slate-800 hover:text-amber-700";
+
+              const activeColor = scrolled
+                ? "text-amber-700"
+                : isHeroPage
+                  ? "text-amber-300"
+                  : "text-amber-700";
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`relative text-sm font-medium transition-colors ${
+                    isActive ? activeColor : baseColor
+                  }`}
+                  style={{
+                    textShadow:
+                      !scrolled && isHeroPage
+                        ? "0 2px 10px rgba(0,0,0,0.45)"
+                        : "none",
+                  }}
+                >
+                  {item.name}
+
+                  {/* Active underline */}
+                  {isActive && (
+                    <span
+                      className={`absolute -bottom-1 left-0 h-[2px] w-full rounded-full ${
+                        scrolled || !isHeroPage
+                          ? "bg-amber-700"
+                          : "bg-amber-300"
+                      }`}
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* ================= MOBILE MENU BUTTON ================= */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden text-zinc-900"
+            className={`md:hidden transition-colors ${
+              scrolled || !isHeroPage ? "text-slate-900" : "text-white"
+            }`}
+            style={{
+              textShadow:
+                !scrolled && isHeroPage
+                  ? "0 2px 10px rgba(0,0,0,0.45)"
+                  : "none",
+            }}
           >
-            {open ? <X size={24} /> : <Menu size={24} />}
+            {open ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ================= MOBILE MENU ================= */}
       {open && (
-        <div className="md:hidden bg-white border-t">
+        <div className="md:hidden bg-white/95 backdrop-blur-xl border-t shadow-lg">
           <div className="flex flex-col px-6 py-6 space-y-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="text-base font-medium text-zinc-800 hover:text-amber-700"
+                className={`text-base font-medium transition ${
+                  pathname === item.href
+                    ? "text-amber-700"
+                    : "text-slate-800 hover:text-amber-700"
+                }`}
               >
                 {item.name}
               </Link>
