@@ -32,24 +32,24 @@ export default function AboutPage() {
     {
       icon: Building2,
       title: "Expertise in Large-Scale Infrastructure",
-      desc: "We possess the specialized technical knowledge and rigorous project management systems required to execute large-scale, high-value infrastructure. This expertise—in precision engineering, quality control, and adherence to tight deadlines—is our guarantee that your residential or commercial asset will be delivered with unmatched durability and quality.-	Visual Elements: Use high-quality, imposing photos of your completed industrial/infrastructure complexes (avoiding the word 'factory'), focusing on the scale, modern architecture, and technical complexity of the buildings. Include key metrics like `Total Square Footage Delivered` or `Average On-Time Delivery Rate.`"
+      desc: "We combine advanced engineering expertise with disciplined project management to deliver large-scale residential and commercial developments on time and built to last. Our focus on precision, quality control, and execution at scale ensures every project meets the highest standards of durability, performance, and long-term value."
     },
     {
       icon: Award,
       title: "Expanding into Integrated Development",
-      desc: "The same engineering rigor and dedication to flawless execution are now applied to the Ariana portfolio. We seamlessly translate complex project mastery into sophisticated, efficient, and beautifully crafted premium residential and commercial spaces, setting a new bar for quality in the market."
+      desc: "The same engineering discipline and commitment to excellence now define the Ariana portfolio. We transform complex project expertise into refined, efficient, and beautifully crafted residential and commercial spaces—setting a higher standard for quality and execution across the market."
     },
     {
       icon: Target,
       title: "Project Portfolio (Current & Future)",
        subtitle:"The Future of Development: Our Pipeline",
-      desc: "We are currently preparing to launch our inaugural portfolio of premium residential, commercial, and office developments in key growth corridors across Bangalore. Our current pipeline is focused on delivering integrated luxury residential communities and Grade-A office parks.-	Visual Elements: Display conceptual 3D renderings or architectural drawings of the types of premium residential and commercial properties Ariana will build, emphasizing sophisticated design and scale."
+      desc: "We are preparing to launch our first portfolio of premium residential, commercial, and office developments across key growth corridors in Bangalore. Our upcoming projects focus on integrated luxury residential communities and Grade-A office parks, designed with scale, sophistication, and long-term value in mind."
     },
     {
       icon: Shield,
       title: "Donayang India – Our Legacy (Group Introduction)",
        subtitle:"A Foundation Built on Global Strength",
-      desc: "Ariana is backed by the financial strength, ethical governance, and global construction pedigree of our Korean parent group, Nature E&T. With a history spanning over 40 years, the Nature Group is synonymous with reliable, large-scale project delivery worldwide. This robust backing ensures complete financial stability and project continuity for every Ariana development in India.-	Visual Elements: Display the Nature Group Logo, key financial stability metrics (e.g., Year Established, Global Project Footprint Map), and a corporate photo of the Korean headquarters."
+      desc: "Ariana is supported by the financial strength, ethical governance, and global construction expertise of its Korean parent group, Nature E&T. With over four decades of experience in delivering large-scale projects worldwide, this strong foundation ensures financial stability, reliability, and uninterrupted execution for every Ariana development in India."
     }
   ];
 
@@ -73,17 +73,74 @@ export default function AboutPage() {
   ];
 
   const globalStats = [
-    { label: "Established", value: "1980s" },
-    { label: "Global Projects", value: "500+" },
-    { label: "Countries", value: "15+" },
+    { label: "Established", value: "2000s" },
+    { label: "Global Projects", value: "50+" },
+    { label: "Countries", value: "5+" },
     { label: "Workforce", value: "10,000+" }
   ];
+
+  const projects = [
+  {
+    title: "Large-Scale Industrial & Office Complex",
+    location: "Andhra Pradesh, India",
+    client: "Global Automotive Manufacturer",
+    duration: "2018 – 2019",
+    area: "1.4+ Million Sq. Ft.",
+    scope: [
+      "Civil & Structural Works",
+      "Steel Frame Installation",
+      "High-Bay Roofing Systems",
+      "MEP Coordination"
+    ],
+    images: ["/arianaHomePageImage1.jpg", "/arianaHomePageImage1.jpg"]
+  },
+  {
+    title: "Integrated Logistics & Office Facility",
+    location: "Tamil Nadu, India",
+    client: "Multinational Logistics Company",
+    duration: "2019 – 2020",
+    area: "900,000+ Sq. Ft.",
+    scope: [
+      "Turnkey Construction",
+      "Pre-Engineered Structures",
+      "Interior Office Fit-outs"
+    ],
+    images: ["/arianaHomePageImage1.jpg", "/arianaHomePageImage1.jpg"]
+  },
+  {
+    title: "Advanced Manufacturing Infrastructure",
+    location: "Karnataka, India",
+    client: "Global Technology Group",
+    duration: "2020 – 2021",
+    area: "1.1 Million Sq. Ft.",
+    scope: [
+      "Heavy Civil Engineering",
+      "Quality-Controlled Execution",
+      "Time-Critical Delivery"
+    ],
+    images: ["/arianaHomePageImage1.jpg", "/arianaHomePageImage1.jpg"]
+  },
+  {
+    title: "Corporate Campus Development",
+    location: "Maharashtra, India",
+    client: "International Engineering Firm",
+    duration: "2021 – 2022",
+    area: "750,000+ Sq. Ft.",
+    scope: [
+      "Campus Planning",
+      "High-Spec Office Blocks",
+      "Sustainable Infrastructure"
+    ],
+    images: ["/arianaHomePageImage1.jpg", "/arianaHomePageImage1.jpg"]
+  }
+];
+
 
   return (
     <main className="bg-white text-slate-900 overflow-hidden">
       
       {/* ================= HERO SECTION ================= */}
-      <section className="relative py-24 sm:py-32 lg:py-40 bg-gradient-to-br from-amber-50 via-white to-slate-50 overflow-hidden">
+      <section className="relative py-24 sm:py-22 lg:py-30 bg-gradient-to-br from-amber-50 via-white to-slate-50 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,191,36,0.08),transparent_50%)]" />
         
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -95,7 +152,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="inline-block mb-6 sm:mb-8 px-4 sm:px-6 py-2 sm:py-3 bg-amber-100 text-amber-800 rounded-full text-xs sm:text-sm font-medium tracking-wide"
           >
-            EST. 2025 — TRUSTED LEGACY
+            EST. 2000 — TRUSTED LEGACY
           </motion.div>
           
           <motion.h1
@@ -247,6 +304,77 @@ export default function AboutPage() {
               ))}
             </div>
           </motion.div>
+
+<section className="py-20 bg-white">
+  <div className="mx-auto">
+
+    {/* Section Header */}
+    <div className="mb-14">
+      <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+        Selected Infrastructure Projects
+      </h2>
+      <p className="text-lg text-slate-600 max-w-3xl">
+        A proven record of delivering complex, high-value developments with precision,
+        scale, and uncompromising quality.
+      </p>
+    </div>
+
+    {/* Projects */}
+    <div className="space-y-20">
+      {projects.map((project, index) => (
+        <div
+          key={index}
+          className="grid lg:grid-cols-2 gap-10 items-center"
+        >
+          {/* Images */}
+          <div className="grid grid-cols-2 gap-4">
+            {project.images.map((img, i) => (
+              <div
+                key={i}
+                className="relative h-56 sm:h-64 rounded-2xl overflow-hidden bg-slate-200"
+              >
+                <Image
+                  src={img}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Project Info */}
+          <div>
+            <h3 className="text-2xl font-semibold text-slate-900 mb-3">
+              {project.title}
+            </h3>
+
+            <div className="grid sm:grid-cols-2 gap-4 text-sm text-slate-600 mb-6">
+              <div><strong>Location:</strong> {project.location}</div>
+              <div><strong>Client:</strong> {project.client}</div>
+              <div><strong>Duration:</strong> {project.duration}</div>
+              <div><strong>Total Area:</strong> {project.area}</div>
+            </div>
+
+            <div>
+              <h4 className="text-sm font-semibold text-slate-900 mb-2 uppercase tracking-wide">
+                Project Scope
+              </h4>
+              <ul className="list-disc list-inside text-slate-600 space-y-1">
+                {project.scope.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+          
 
           {/* ================= EXPERTISE CARDS ================= */}
           <div className="grid gap-6 sm:gap-8 md:grid-cols-2 mb-16 sm:mb-20 lg:mb-24">

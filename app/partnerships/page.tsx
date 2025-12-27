@@ -263,7 +263,7 @@ export default function PartnershipsPage() {
       </section>
 
       {/* ================= VISUAL SHOWCASE ================= */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white">
+      {/* <section className="py-16 sm:py-20 lg:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
@@ -289,7 +289,7 @@ export default function PartnershipsPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* ================= PARTNERSHIP MODELS SECTION ================= */}
       <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-white to-slate-50">
@@ -398,7 +398,7 @@ export default function PartnershipsPage() {
               Partner with Ariana to unlock premium value through trust, execution excellence, and long-term vision. Together, we'll create landmark developments that define India's real estate future.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+            {/* <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -415,7 +415,7 @@ export default function PartnershipsPage() {
               >
                 Download Partnership Guide
               </motion.button>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>

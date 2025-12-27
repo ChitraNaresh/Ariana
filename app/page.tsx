@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Award, Building2, TrendingUp } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -20,12 +21,13 @@ const scaleIn = {
 };
 
 export default function HomePage() {
+  const router = useRouter();
   const highlights = [
     {
       icon: Award,
       title: "The Vision of Ariana",
       subtitle: "Setting the New Standard for Indian Real Estate.",
-      link: "#vision",
+      link: "/brand",
       gradient: "from-amber-500 to-orange-600",
       bgGradient: "from-amber-50 to-orange-50",
     },
@@ -33,7 +35,7 @@ export default function HomePage() {
       icon: Building2,
       title: "The Mark of Precision",
       subtitle: "Beyond Standards: Korean Engineering Prowess.",
-      link: "#precision",
+      link: "/about",
       gradient: "from-slate-600 to-slate-800",
       bgGradient: "from-slate-50 to-slate-100",
     },
@@ -41,7 +43,7 @@ export default function HomePage() {
       icon: TrendingUp,
       title: "Integrated Portfolio",
       subtitle: "Invest in Diversity: Residential, Commercial, and Office.",
-      link: "#portfolio",
+      link: "/brand",
       gradient: "from-amber-600 to-amber-800",
       bgGradient: "from-amber-50 to-yellow-50",
     },
@@ -204,59 +206,73 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
-            {highlights.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.a
-                  key={index}
-                  href={item.link}
-                  variants={scaleIn}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.15 }}
-                  className="group relative bg-white rounded-3xl sm:rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border border-slate-200"
-                >
-                  {/* Gradient Background */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${item.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                  
-                  {/* Content Container */}
-                  <div className="relative p-6 sm:p-8 lg:p-10 h-full flex flex-col">
-                    
-                    {/* Icon */}
-                    <div className={`mb-6 sm:mb-8 inline-flex p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-gradient-to-br ${item.gradient} shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 self-start`}>
-                      <Icon className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />
-                    </div>
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+      {highlights.map((item, index) => {
+        const Icon = item.icon;
 
-                    {/* Text Content */}
-                    <div className="flex-1">
-                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-slate-900 group-hover:text-slate-800 transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed mb-6 sm:mb-8">
-                        {item.subtitle}
-                      </p>
-                    </div>
+        return (
+          <motion.div
+            key={index}
+            variants={scaleIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.15 }}
+            onClick={() => router.push(item.link)}
+            className="group relative bg-white rounded-3xl sm:rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border border-slate-200"
+          >
+            {/* Gradient Background */}
+            <div
+              className={`absolute inset-0 bg-gradient-to-br ${item.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+            />
 
-                    {/* CTA */}
-                    <div className="flex items-center text-amber-600 font-semibold group-hover:text-amber-700 transition-colors text-sm sm:text-base">
-                      <span>Learn More</span>
-                      <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
-                    </div>
+            {/* Content */}
+            <div className="relative p-6 sm:p-8 lg:p-10 h-full flex flex-col">
+              {/* Icon */}
+              <div
+                className={`mb-6 sm:mb-8 inline-flex p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-gradient-to-br ${item.gradient} shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 self-start`}
+              >
+                <Icon className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />
+              </div>
 
-                    {/* Decorative corner element */}
-                    <div className={`absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 rounded-bl-full transition-opacity duration-500`} />
-                  </div>
+              {/* Text */}
+              <div className="flex-1">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-slate-900 group-hover:text-slate-800 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed mb-6 sm:mb-8">
+                  {item.subtitle}
+                </p>
+              </div>
 
-                  {/* Shine effect on hover */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000" />
-                  </div>
-                </motion.a>
-              );
-            })}
-          </div>
+              {/* CTA */}
+              <Link
+                href={item.link}
+                onClick={(e) => e.stopPropagation()}
+                className="relative inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors text-sm sm:text-base group/cta"
+              >
+                <span>Learn More</span>
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover/cta:translate-x-2 transition-transform duration-300" />
+
+                {/* Underline */}
+                <span className="absolute left-0 -bottom-1 h-[1px] w-full bg-current scale-x-0 group-hover/cta:scale-x-100 origin-left transition-transform duration-300" />
+              </Link>
+
+              {/* Decorative Corner */}
+              <div
+                className={`absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 rounded-bl-full transition-opacity duration-500`}
+              />
+            </div>
+
+            {/* Shine Effect */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000" />
+            </div>
+          </motion.div>
+        );
+      })}
+    </div>
+
         </div>
       </section>
 
@@ -313,7 +329,8 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="group px-8 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-base sm:text-lg font-bold rounded-full hover:from-amber-600 hover:to-amber-700 transition-all duration-300 shadow-2xl hover:shadow-amber-500/50 hover:scale-105"
           >
-            Discover Our Legacy
+           <Link  href="/about">
+            Discover Our Legacy</Link>
             <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={20} />
           </motion.button>
         </div>

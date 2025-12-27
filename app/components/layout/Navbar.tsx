@@ -11,7 +11,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   // Pages that have hero / dark background
-  const heroRoutes = ["/", "/partnerships"];
+  const heroRoutes = ["/", "/partnerships","/brand"];
   const isHeroPage = heroRoutes.includes(pathname);
 
   useEffect(() => {
@@ -40,69 +40,85 @@ export default function Navbar() {
         <div className="flex h-20 items-center justify-between">
 
           {/* ================= LOGO ================= */}
-          <Link href="/" className="flex items-center">
-            <div
-              className={`flex items-center px-3 py-1 rounded-xl transition-all ${
-                scrolled
-                  ? "bg-white/80 border border-slate-200 shadow-sm"
-                  : "bg-white/20 backdrop-blur-md"
-              }`}
-            >
-              <img
-                src="/arianaWebLogo.jpeg"
-                alt="Ariana App Logo"
-                className="h-8 w-auto object-contain rounded-lg"
-              />
-            </div>
-          </Link>
+         {/* ================= LOGO ================= */}
+<Link href="/" className="flex items-center">
+  <div
+    className={`px-4 py-2 rounded-xl transition-all duration-300 ${
+      scrolled
+        ? "bg-white/80 border border-slate-200 shadow-sm"
+        : "bg-white/20 backdrop-blur-md"
+    }`}
+  >
+    <span
+      className={`text-xl sm:text-2xl font-serif tracking-[0.25em] transition-colors ${
+        scrolled
+          ? "text-slate-900"
+          : isHeroPage
+            ? "text-white"
+            : "text-slate-900"
+      }`}
+      style={{
+        textShadow:
+          !scrolled && isHeroPage
+            ? "0 3px 14px rgba(0,0,0,0.55)"
+            : "none",
+      }}
+    >
+      ARIANA
+    </span>
+  </div>
+</Link>
 
+
+         
           {/* ================= DESKTOP NAV ================= */}
-          <nav className="hidden md:flex items-center gap-10">
-            {navItems.map((item) => {
-              const isActive = pathname === item.href;
+<nav className="hidden md:flex items-center gap-12">
+  {navItems.map((item) => {
+    const isActive = pathname === item.href;
 
-              const baseColor = scrolled
-                ? "text-slate-800 hover:text-amber-700"
-                : isHeroPage
-                  ? "text-white hover:text-amber-200"
-                  : "text-slate-800 hover:text-amber-700";
+    const textColor = scrolled
+      ? "text-slate-800 hover:text-amber-700"
+      : isHeroPage
+        ? "text-white/90 hover:text-amber-200"
+        : "text-slate-800 hover:text-amber-700";
 
-              const activeColor = scrolled
-                ? "text-amber-700"
-                : isHeroPage
-                  ? "text-amber-300"
-                  : "text-amber-700";
+    const activeColor = scrolled
+      ? "text-amber-700"
+      : isHeroPage
+        ? "text-amber-300"
+        : "text-amber-700";
 
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`relative text-sm font-medium transition-colors ${
-                    isActive ? activeColor : baseColor
-                  }`}
-                  style={{
-                    textShadow:
-                      !scrolled && isHeroPage
-                        ? "0 2px 10px rgba(0,0,0,0.45)"
-                        : "none",
-                  }}
-                >
-                  {item.name}
+    return (
+      <Link
+        key={item.href}
+        href={item.href}
+        className={`group relative text-[13px] uppercase tracking-[0.18em] font-medium transition-colors duration-300 ${
+          isActive ? activeColor : textColor
+        }`}
+        style={{
+          textShadow:
+            !scrolled && isHeroPage
+              ? "0 2px 10px rgba(0,0,0,0.45)"
+              : "none",
+        }}
+      >
+        {item.name}
 
-                  {/* Active underline */}
-                  {isActive && (
-                    <span
-                      className={`absolute -bottom-1 left-0 h-[2px] w-full rounded-full ${
-                        scrolled || !isHeroPage
-                          ? "bg-amber-700"
-                          : "bg-amber-300"
-                      }`}
-                    />
-                  )}
-                </Link>
-              );
-            })}
-          </nav>
+        {/* Elegant underline */}
+        <span
+          className={`absolute left-0 -bottom-2 h-[1.5px] w-full origin-left scale-x-0 transition-transform duration-300 ${
+            scrolled || !isHeroPage
+              ? "bg-amber-700"
+              : "bg-amber-300"
+          } group-hover:scale-x-100 ${
+            isActive ? "scale-x-100" : ""
+          }`}
+        />
+      </Link>
+    );
+  })}
+</nav>
+
 
           {/* ================= MOBILE MENU BUTTON ================= */}
           <button
