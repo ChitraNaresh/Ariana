@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import ProjectShowcase from "./projectShowcase/ProjectShowcase";
 import MapProjects from "./projectShowcase/MapProjects";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -23,6 +25,29 @@ const scaleIn = {
 };
 
 export default function AboutPage() {
+
+
+  const pathname = usePathname();
+
+useEffect(() => {
+  if (typeof window === "undefined") return;
+
+  const hash = window.location.hash; // #Dongyang-india
+  if (!hash) return;
+
+  const element = document.querySelector(hash);
+  if (!element) return;
+
+  // Delay ensures page is fully rendered
+  setTimeout(() => {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, 100);
+}, [pathname]);
+
+
   const stats = [
     { value: "40+", label: "Years Experience" },
     { value: "50M+", label: "Sq Ft Delivered" },
@@ -47,12 +72,6 @@ export default function AboutPage() {
        subtitle:"The Future of Development: Our Pipeline",
       desc: "We are preparing to launch our first portfolio of premium residential, commercial, and office developments across key growth corridors in Bangalore. Our upcoming projects focus on integrated luxury residential communities and Grade-A office parks, designed with scale, sophistication, and long-term value in mind."
     },
-    {
-      icon: Shield,
-      title: "Donayang India – Our Legacy (Group Introduction)",
-       subtitle:"A Foundation Built on Global Strength",
-      desc: "Ariana is supported by the financial strength, ethical governance, and global construction expertise of its Korean parent group, Nature E&T. With over four decades of experience in delivering large-scale projects worldwide, this strong foundation ensures financial stability, reliability, and uninterrupted execution for every Ariana development in India."
-    }
   ];
 
   const highlights = [
@@ -75,7 +94,7 @@ export default function AboutPage() {
   ];
 
   const globalStats = [
-    { label: "Established", value: "2000s" },
+    { label: "Established", value: "1986s" },
     { label: "Global Projects", value: "50+" },
     { label: "Countries", value: "5+" },
     { label: "Workforce", value: "10,000+" }
@@ -155,7 +174,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="inline-block mb-6 sm:mb-8 px-4 sm:px-6 py-2 sm:py-3 bg-amber-100 text-amber-800 rounded-full text-xs sm:text-sm font-medium tracking-wide"
           >
-            EST. 1985 — TRUSTED LEGACY
+            EST. 1986— TRUSTED LEGACY
           </motion.div>
           
           <motion.h1
@@ -180,8 +199,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= DONAYANG INDIA - LOCAL EXPERTISE ================= */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white">
+      {/* ================= Dongyang INDIA - LOCAL EXPERTISE ================= */}
+      <section className="py-30 sm:py-20 lg:py-24 bg-white" id="Dongyang-india">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <motion.div
@@ -195,7 +214,7 @@ export default function AboutPage() {
             <div className="flex items-center gap-3 mb-6 sm:mb-8">
               <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-amber-600 to-amber-400 rounded-full" />
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900">
-                Donayang India
+                Dongyang India
               </h2>
             </div>
             
@@ -206,7 +225,7 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
               <div className="space-y-4 sm:space-y-6">
                 <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-                  While leveraging global standards, Donayang India is deeply committed to the Indian market. Our local subsidiary operates with a clear understanding of the regulatory landscape including RERA compliance, market dynamics, and regional consumer needs.
+                  While leveraging global standards, Dongyang India is deeply committed to the Indian market. Our local subsidiary operates with a clear understanding of the regulatory landscape including RERA compliance, market dynamics, and regional consumer needs.
                 </p>
                 <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
                   Our dedicated Indian leadership and local teams ensure that global expertise is translated into relevant, high-quality, and locally successful projects across key metropolitan areas.
@@ -241,35 +260,19 @@ export default function AboutPage() {
             </div>
           </motion.div>
 
-          {/* LEADERSHIP IMAGE PLACEHOLDER */}
-          {/* <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9 }}
-            className="relative w-full h-64 sm:h-80 md:h-96 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl mb-16 sm:mb-20 lg:mb-24 group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-amber-900" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6 sm:p-8">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-amber-500/20 rounded-full flex items-center justify-center mb-4 sm:mb-6 backdrop-blur-sm border border-amber-400/30 group-hover:scale-110 transition-transform duration-300">
-                <Users className="w-8 h-8 sm:w-10 sm:h-10 text-amber-400" />
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3">Leadership Team</h3>
-              <p className="text-amber-200 text-center max-w-lg text-sm sm:text-base px-4">
-                India Operations Map & Executive Leadership
-              </p>
-              <p className="text-slate-400 text-xs sm:text-sm mt-3 sm:mt-4">[Upload Leadership Image Here]</p>
-            </div>
-          </motion.div> */}
+      
 
           {/* ================= OUR TRACK RECORD ================= */}
-          <motion.div
+
+          <section id="track-record" className="py-30 sm:py-20 lg:py-24">
+             <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="mb-12 sm:mb-16"
+            id="track-record"
           >
             <div className="flex items-center gap-3 mb-6 sm:mb-8">
               <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-amber-600 to-amber-400 rounded-full" />
@@ -283,7 +286,7 @@ export default function AboutPage() {
             </h3>
             
             <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-5xl mb-8 sm:mb-12">
-              Our dedication to quality and precision is not theoretical; it is proven. For years, Donayang India has been the preferred partner for complex, technically demanding, and time-critical projects for major global corporations in India. This history ensures every Ariana development is built on the highest standards of engineering and reliability.
+              Our dedication to quality and precision is not theoretical; it is proven. For years, Dongyang India has been the preferred partner for complex, technically demanding, and time-critical projects for major global corporations in India. This history ensures every Ariana development is built on the highest standards of engineering and reliability.
             </p>
             
             {/* STATS GRID */}
@@ -308,7 +311,7 @@ export default function AboutPage() {
             </div>
           </motion.div>
 
-<section className="py-20 bg-white">
+<section className=" bg-white py-30 sm:py-20 lg:py-24" >
   <div className="mx-auto">
 
     {/* Section Header */}
@@ -394,8 +397,12 @@ export default function AboutPage() {
               );
             })}
           </div>
+          </section>
+         
 
-          <MapProjects/>
+          <section id="group-legacy">
+            <MapProjects/>
+          </section>
 
           {/* ================= FUTURE PORTFOLIO VISUALIZATION ================= */}
           <motion.div
@@ -404,7 +411,7 @@ export default function AboutPage() {
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="mb-16 sm:mb-20 lg:mb-24"
+            className="mb-16 sm:mb-20 lg:mb-24 mt-16 sm:mt-20 lg:mt-24"
           >
             <div className="flex items-center gap-3 mb-6 sm:mb-8">
               <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-amber-600 to-amber-400 rounded-full" />

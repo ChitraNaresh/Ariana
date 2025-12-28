@@ -186,7 +186,7 @@ export default function PartnershipsPage() {
             </div>
             
             <p className="text-lg sm:text-xl text-slate-700 leading-relaxed max-w-4xl mx-auto">
-              We invite visionary Land Owners and Strategic Capital Partners to join us in shaping the future of India's premium real estate market. Leverage Donayang India's proven construction mastery and the premium market positioning of the Ariana brand to maximize returns on your assets.
+              We invite visionary Land Owners and Strategic Capital Partners to join us in shaping the future of India's premium real estate market. Leverage Dongyang India's proven construction mastery and the premium market positioning of the Ariana brand to maximize returns on your assets.
             </p>
           </motion.div>
         </div>

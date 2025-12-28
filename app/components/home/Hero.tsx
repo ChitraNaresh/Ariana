@@ -15,7 +15,7 @@ export default function Hero() {
             Precision Engineering Meets Visionary Design.
             <br />
             <span className="font-medium text-zinc-900">
-              Powered by Donayang India.
+              Powered by Dongyang India.
             </span>
           </p>
 

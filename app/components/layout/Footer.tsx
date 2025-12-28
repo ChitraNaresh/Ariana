@@ -13,7 +13,7 @@ export default function Footer() {
               ARIANA
             </h3>
             <p className="text-sm leading-relaxed max-w-sm">
-              Ariana is a premium real estate brand by Donayang India, delivering
+              Ariana is a premium real estate brand by Dongyang India, delivering
               high-quality residential, commercial, and office developments
               backed by 40+ years of global construction excellence.
             </p>

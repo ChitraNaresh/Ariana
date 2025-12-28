@@ -106,7 +106,7 @@ export default function HomePage() {
           >
             Precision Engineering Meets Visionary Design.
             <span className="block mt-2 text-amber-300 font-medium">
-              Powered by Donayang India.
+              Powered by Dongyang India.
             </span>
           </motion.p>
 

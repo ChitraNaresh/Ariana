@@ -89,7 +89,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="mb-4 sm:mb-6"
           >
-            <span className="inline-block px-4 py-2 bg-amber-100/50 backdrop-blur-sm text-amber-900 text-xs sm:text-sm font-medium rounded-full border border-amber-200">
+            <span className="inline-block px-4 py-2 my-10 bg-amber-100/50 backdrop-blur-sm text-amber-900 text-xs sm:text-sm font-medium rounded-full border border-amber-200">
               Get in Touch
             </span>
           </motion.div>

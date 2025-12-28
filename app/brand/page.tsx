@@ -304,28 +304,31 @@ export default function BrandPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
             {[
-              {
-                sector: "High-End Residential",
-                offering: "Luxury Apartments, Villas, and Integrated Townships",
-                focus: "Creating exclusive, beautifully designed living spaces with world-class amenities and uncompromising safety standards.",
-                gradient: "from-amber-50 to-orange-50",
-                image:"./arianaHomePageImage1.jpg"
-              },
-              {
-                sector: "Premium Commercial",
-                offering: "Integrated Retail Centres, Mixed-Use Developments, and Lifestyle Hubs",
-                focus: "Developing vibrant, strategically located commercial destinations that maximize foot traffic and business success through smart planning and premium execution.",
-                gradient: "from-blue-50 to-indigo-50",
-                  image:"./arianaHomePageImage1.jpg"
-              },
-              {
-                sector: "Grade-A Office",
-                offering: "Corporate Campuses, IT Parks, and High-Efficiency Office Towers",
-                focus: "Delivering cutting-edge, sustainable workspace solutions with superior infrastructure and technology designed for leading global and Indian enterprises.",
-                gradient: "from-slate-50 to-gray-50",
-                  image:"./arianaHomePageImage1.jpg"
-              },
-            ].map((item, i) => (
+    {
+      sector: "High-End Residential",
+      offering: "Luxury Apartments, Villas, and Integrated Townships",
+      focus: "Creating exclusive, beautifully designed living spaces with world-class amenities and uncompromising safety standards.",
+      gradient: "from-amber-50 to-orange-50",
+      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2000&h=800&fit=crop",
+      accentColor: "amber"
+    },
+    {
+      sector: "Premium Commercial",
+      offering: "Integrated Retail Centres, Mixed-Use Developments, and Lifestyle Hubs",
+      focus: "Developing vibrant, strategically located commercial destinations that maximize foot traffic and business success through smart planning and premium execution.",
+      gradient: "from-blue-50 to-indigo-50",
+      image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716",
+      accentColor: "blue"
+    },
+    {
+      sector: "Grade-A Office",
+      offering: "Corporate Campuses, IT Parks, and High-Efficiency Office Towers",
+      focus: "Delivering cutting-edge, sustainable workspace solutions with superior infrastructure and technology designed for leading global and Indian enterprises.",
+      gradient: "from-slate-50 to-gray-50",
+      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=2000&h=800&fit=crop",
+      accentColor: "slate"
+    },
+  ].map((item, i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}

@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false); // mobile accordion
   const pathname = usePathname();
 
-  // Pages that have hero / dark background
-  const heroRoutes = ["/", "/partnerships","/brand"];
+  const heroRoutes = ["/", "/partnerships", "/brand"];
   const isHeroPage = heroRoutes.includes(pathname);
 
   useEffect(() => {
@@ -23,7 +23,15 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "The ARIANA", href: "/brand" },
-    { name: "About Us", href: "/about" },
+    {
+      name: "About Us",
+      href: "/about",
+      children: [
+        { name: "Dongyang India – Local Expertise", href: "/about#Dongyang-india" },
+        { name: "Our Track Record", href: "/about#track-record" },
+        { name: "Dongyang Group – Our Legacy", href: "/about#group-legacy" },
+      ],
+    },
     { name: "Partnerships", href: "/partnerships" },
     { name: "Contact", href: "/contact" },
   ];
@@ -39,99 +47,98 @@ export default function Navbar() {
       <div className="mx-auto max-w-[2000px] px-6">
         <div className="flex h-20 items-center justify-between">
 
-          {/* ================= LOGO ================= */}
-         {/* ================= LOGO ================= */}
-<Link href="/" className="flex items-center">
-  <div
-    className={`px-4 py-2 rounded-xl transition-all duration-300 ${
-      scrolled
-        ? "bg-white/80 border border-slate-200 shadow-sm"
-        : "bg-white/20 backdrop-blur-md"
-    }`}
-  >
-    <span
-      className={`text-xl sm:text-2xl font-serif tracking-[0.25em] transition-colors ${
-        scrolled
-          ? "text-slate-900"
-          : isHeroPage
-            ? "text-white"
-            : "text-slate-900"
-      }`}
-      style={{
-        textShadow:
-          !scrolled && isHeroPage
-            ? "0 3px 14px rgba(0,0,0,0.55)"
-            : "none",
-      }}
-    >
-      ARIANA
-    </span>
-  </div>
-</Link>
+          {/* LOGO */}
+          <Link href="/" className="flex items-center">
+            <div
+              className={`px-4 py-2 rounded-xl transition-all ${
+                scrolled
+                  ? "bg-white/80 border border-slate-200 shadow-sm"
+                  : "bg-white/20 backdrop-blur-md"
+              }`}
+            >
+              <span
+                className={`text-xl sm:text-2xl font-serif tracking-[0.25em] ${
+                  scrolled
+                    ? "text-slate-900"
+                    : isHeroPage
+                      ? "text-white"
+                      : "text-slate-900"
+                }`}
+              >
+                ARIANA
+              </span>
+            </div>
+          </Link>
 
-
-         
           {/* ================= DESKTOP NAV ================= */}
-<nav className="hidden md:flex items-center gap-12">
-  {navItems.map((item) => {
-    const isActive = pathname === item.href;
+          <nav className="hidden md:flex items-center gap-12">
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              const baseColor = scrolled
+                ? "text-slate-800 hover:text-amber-700"
+                : isHeroPage
+                  ? "text-white/90 hover:text-amber-200"
+                  : "text-slate-800 hover:text-amber-700";
 
-    const textColor = scrolled
-      ? "text-slate-800 hover:text-amber-700"
-      : isHeroPage
-        ? "text-white/90 hover:text-amber-200"
-        : "text-slate-800 hover:text-amber-700";
+              const activeColor = scrolled
+                ? "text-amber-700"
+                : isHeroPage
+                  ? "text-amber-300"
+                  : "text-amber-700";
 
-    const activeColor = scrolled
-      ? "text-amber-700"
-      : isHeroPage
-        ? "text-amber-300"
-        : "text-amber-700";
+              /* ---------- ABOUT US DROPDOWN ---------- */
+              if (item.children) {
+                return (
+                  <div key={item.name} className="relative group">
+                    <Link
+                      href={item.href}
+                      className={`flex items-center gap-2 text-[13px] uppercase tracking-[0.18em] font-medium ${
+                        isActive ? activeColor : baseColor
+                      }`}
+                    >
+                      {item.name}
+                      <ChevronDown size={14} />
+                    </Link>
 
-    return (
-      <Link
-        key={item.href}
-        href={item.href}
-        className={`group relative text-[13px] uppercase tracking-[0.18em] font-medium transition-colors duration-300 ${
-          isActive ? activeColor : textColor
-        }`}
-        style={{
-          textShadow:
-            !scrolled && isHeroPage
-              ? "0 2px 10px rgba(0,0,0,0.45)"
-              : "none",
-        }}
-      >
-        {item.name}
+                    {/* Dropdown */}
+                    <div className="absolute top-full left-0 mt-4 w-72 rounded-2xl bg-white shadow-xl border border-slate-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                      <div className="py-3">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block px-6 py-3 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-700 transition"
+                          >
+                            {child.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
 
-        {/* Elegant underline */}
-        <span
-          className={`absolute left-0 -bottom-2 h-[1.5px] w-full origin-left scale-x-0 transition-transform duration-300 ${
-            scrolled || !isHeroPage
-              ? "bg-amber-700"
-              : "bg-amber-300"
-          } group-hover:scale-x-100 ${
-            isActive ? "scale-x-100" : ""
-          }`}
-        />
-      </Link>
-    );
-  })}
-</nav>
+              /* ---------- NORMAL LINK ---------- */
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-[13px] uppercase tracking-[0.18em] font-medium ${
+                    isActive ? activeColor : baseColor
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+          </nav>
 
-
-          {/* ================= MOBILE MENU BUTTON ================= */}
+          {/* ================= MOBILE BUTTON ================= */}
           <button
             onClick={() => setOpen(!open)}
-            className={`md:hidden transition-colors ${
+            className={`md:hidden ${
               scrolled || !isHeroPage ? "text-slate-900" : "text-white"
             }`}
-            style={{
-              textShadow:
-                !scrolled && isHeroPage
-                  ? "0 2px 10px rgba(0,0,0,0.45)"
-                  : "none",
-            }}
           >
             {open ? <X size={26} /> : <Menu size={26} />}
           </button>
@@ -141,21 +148,54 @@ export default function Navbar() {
       {/* ================= MOBILE MENU ================= */}
       {open && (
         <div className="md:hidden bg-white/95 backdrop-blur-xl border-t shadow-lg">
-          <div className="flex flex-col px-6 py-6 space-y-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className={`text-base font-medium transition ${
-                  pathname === item.href
-                    ? "text-amber-700"
-                    : "text-slate-800 hover:text-amber-700"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+          <div className="px-6 py-6 space-y-4">
+
+            {navItems.map((item) => {
+              if (item.children) {
+                return (
+                  <div key={item.name}>
+                    <button
+                      onClick={() => setAboutOpen(!aboutOpen)}
+                      className="flex w-full items-center justify-between text-slate-800 font-medium"
+                    >
+                      {item.name}
+                      <ChevronDown
+                        size={18}
+                        className={`transition-transform ${
+                          aboutOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {aboutOpen && (
+                      <div className="mt-3 ml-4 space-y-3">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={() => setOpen(false)}
+                            className="block text-sm text-slate-600 hover:text-amber-700"
+                          >
+                            {child.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="block text-base font-medium text-slate-800 hover:text-amber-700"
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}
