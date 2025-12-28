@@ -78,7 +78,7 @@ export default function ContactPage() {
     <main className="bg-white text-slate-900 overflow-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-br from-amber-50 via-slate-50 to-white px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-36 md:py-40 bg-gradient-to-br from-amber-50 via-slate-50 to-white px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,191,36,0.1),transparent_60%)]" />
         <div className="max-w-6xl mx-auto text-center relative z-10">
 

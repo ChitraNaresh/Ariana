@@ -320,7 +320,7 @@ export default function HomePage() {
           >
             Experience the perfect synthesis of global standards, innovative design, and uncompromising quality that defines every Ariana development.
           </motion.p>
-
+ <Link  href="/about">
           <motion.button
             variants={scaleIn}
             initial="hidden"
@@ -329,10 +329,11 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="group px-8 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-base sm:text-lg font-bold rounded-full hover:from-amber-600 hover:to-amber-700 transition-all duration-300 shadow-2xl hover:shadow-amber-500/50 hover:scale-105"
           >
-           <Link  href="/about">
-            Discover Our Legacy</Link>
+          
+            Discover Our Legacy
             <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={20} />
           </motion.button>
+          </Link>
         </div>
       </section>
 

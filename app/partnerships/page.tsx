@@ -262,34 +262,7 @@ export default function PartnershipsPage() {
         </div>
       </section>
 
-      {/* ================= VISUAL SHOWCASE ================= */}
-      {/* <section className="py-16 sm:py-20 lg:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9 }}
-            className="relative h-64 sm:h-80 md:h-96 lg:h-[420px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-amber-950 to-slate-800" />
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTEsMTkxLDM2LDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30" />
-            
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6 sm:p-8">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-amber-500/20 rounded-full flex items-center justify-center mb-4 sm:mb-6 backdrop-blur-sm border-2 border-amber-400/40 group-hover:scale-110 transition-transform duration-500">
-                <Handshake className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-amber-400" />
-              </div>
-              <h4 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3 text-center">
-                Strategic Partnership Visual
-              </h4>
-              <p className="text-amber-200 text-center max-w-xl text-sm sm:text-base md:text-lg px-4">
-                Land Development • Capital Partnership • Premium Execution
-              </p>
-              <p className="text-slate-500 text-xs sm:text-sm mt-3 sm:mt-4">[Upload Partnership Image Here]</p>
-            </div>
-          </motion.div>
-        </div>
-      </section> */}
+     
 
       {/* ================= PARTNERSHIP MODELS SECTION ================= */}
       <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-white to-slate-50">

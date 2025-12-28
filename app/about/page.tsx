@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { Building2, Award, Target, Users, TrendingUp, Globe, Shield, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import ProjectShowcase from "./projectShowcase/ProjectShowcase";
+import MapProjects from "./projectShowcase/MapProjects";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -81,10 +83,11 @@ export default function AboutPage() {
 
   const projects = [
   {
-    title: "Large-Scale Industrial & Office Complex",
-    location: "Andhra Pradesh, India",
-    client: "Global Automotive Manufacturer",
-    duration: "2018 – 2019",
+    title: "Factory, Office, Lodging, Restaurant, Guard House, etc Work for Sehan India",
+    location: "Anantapur, Andhra Pradesh, India",
+    client: "KSH Automative Pvt.Ltd",
+    date:"2018.06.21",
+    duration: "2018.06.21 – 2019.02.28",
     area: "1.4+ Million Sq. Ft.",
     scope: [
       "Civil & Structural Works",
@@ -152,7 +155,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="inline-block mb-6 sm:mb-8 px-4 sm:px-6 py-2 sm:py-3 bg-amber-100 text-amber-800 rounded-full text-xs sm:text-sm font-medium tracking-wide"
           >
-            EST. 2000 — TRUSTED LEGACY
+            EST. 1985 — TRUSTED LEGACY
           </motion.div>
           
           <motion.h1
@@ -319,57 +322,7 @@ export default function AboutPage() {
       </p>
     </div>
 
-    {/* Projects */}
-    <div className="space-y-20">
-      {projects.map((project, index) => (
-        <div
-          key={index}
-          className="grid lg:grid-cols-2 gap-10 items-center"
-        >
-          {/* Images */}
-          <div className="grid grid-cols-2 gap-4">
-            {project.images.map((img, i) => (
-              <div
-                key={i}
-                className="relative h-56 sm:h-64 rounded-2xl overflow-hidden bg-slate-200"
-              >
-                <Image
-                  src={img}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Project Info */}
-          <div>
-            <h3 className="text-2xl font-semibold text-slate-900 mb-3">
-              {project.title}
-            </h3>
-
-            <div className="grid sm:grid-cols-2 gap-4 text-sm text-slate-600 mb-6">
-              <div><strong>Location:</strong> {project.location}</div>
-              <div><strong>Client:</strong> {project.client}</div>
-              <div><strong>Duration:</strong> {project.duration}</div>
-              <div><strong>Total Area:</strong> {project.area}</div>
-            </div>
-
-            <div>
-              <h4 className="text-sm font-semibold text-slate-900 mb-2 uppercase tracking-wide">
-                Project Scope
-              </h4>
-              <ul className="list-disc list-inside text-slate-600 space-y-1">
-                {project.scope.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
+    <ProjectShowcase/>
 
   </div>
 </section>
@@ -441,6 +394,8 @@ export default function AboutPage() {
               );
             })}
           </div>
+
+          <MapProjects/>
 
           {/* ================= FUTURE PORTFOLIO VISUALIZATION ================= */}
           <motion.div
