@@ -79,10 +79,10 @@ export default function Footer() {
               <p>
                 <span className="block text-zinc-400">Email</span>
                 <a
-                  href="mailto:mkonhg@dongyangc.com"
+                  href="mailto:minkihong@dongyangc.com"
                   className="hover:text-amber-500 transition"
                 >
-                  mkonhg@dongyangc.com
+                  minkihong@dongyangc.com
                 </a>
               </p>
 

@@ -49,8 +49,8 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: "Email Address",
-      content: "mkonhg@dongyangc.com",
-      link: "mailto:mkonhg@dongyangc.com",
+      content: "minkihong@dongyangc.com",
+      link: "mailto:minkihong@dongyangc.com",
       gradient: "from-blue-100 to-blue-50"
     },
     {
@@ -66,12 +66,12 @@ export default function ContactPage() {
       content: "Moparahalli, Doddaballapura Tq, Bengaluru Rural District – 562110",
       gradient: "from-amber-100 to-amber-50"
     },
-    {
-      icon: Clock,
-      title: "Business Hours",
-      content: "Monday - Saturday: 9:00 AM - 6:00 PM",
-      gradient: "from-purple-100 to-purple-50"
-    }
+    // {
+    //   icon: Clock,
+    //   title: "Business Hours",
+    //   content: "Monday - Saturday: 9:00 AM - 6:00 PM",
+    //   gradient: "from-purple-100 to-purple-50"
+    // }
   ];
 
   return (
@@ -213,7 +213,7 @@ export default function ContactPage() {
               </div>
 
               {/* ================= MAP ================= */}
-              <motion.div
+              {/* <motion.div
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="visible"
@@ -222,7 +222,7 @@ export default function ContactPage() {
                 className="rounded-2xl overflow-hidden shadow-lg border border-slate-200 mt-5 sm:mt-6"
               >
                 <GoogleMap />
-              </motion.div>
+              </motion.div> */}
             </motion.div>
 
             {/* ================= CONTACT FORM ================= */}
