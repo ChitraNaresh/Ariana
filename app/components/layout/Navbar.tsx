@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -46,29 +47,21 @@ export default function Navbar() {
     >
       <div className="mx-auto max-w-[2000px] px-6">
         <div className="flex h-20 items-center justify-between">
-
-          {/* LOGO */}
-          <Link href="/" className="flex items-center">
-            <div
-              className={`px-4 py-2 rounded-xl transition-all ${
-                scrolled
-                  ? "bg-white/80 border border-slate-200 shadow-sm"
-                  : "bg-white/20 backdrop-blur-md"
-              }`}
-            >
-              <span
-                className={`text-xl sm:text-2xl font-serif tracking-[0.25em] ${
-                  scrolled
-                    ? "text-slate-900"
-                    : isHeroPage
-                      ? "text-white"
-                      : "text-slate-900"
-                }`}
-              >
-                ARIANA
-              </span>
-            </div>
-          </Link>
+{/* LOGO */}
+<Link href="/" className="flex items-center">
+  <div
+    className={`px-3 py-2 rounded-xl transition-all duration-300 flex items-center justify-center`}
+  >
+    <Image
+      src="/ArianaNewLogo.png"
+      alt="Ariana"
+      width={100}
+      height={30}
+      priority
+      className="object-contain rounded-lg"
+    />
+  </div>
+</Link>
 
           {/* ================= DESKTOP NAV ================= */}
           <nav className="hidden md:flex items-center gap-12">
